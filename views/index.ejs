@@ -1,0 +1,19 @@
+    <%- include("./partials/header") %>
+    
+    <h1>Avions</h1>
+
+    <% avions.forEach( (avion) => { %>
+        <ul>
+            <li> Modèle : <%= avion.modele %> </li>
+            <li> Compagnie : <%= avion.compagnie %> </li>
+            <li> Capacité : <%= avion.capacite %> </li>
+        </ul>
+        <form method="POST" action="/api/avions/<%= avion._id %>?_method=DELETE">
+            <button type="submit">Delete</button>
+        </form>
+        <hr>
+    <% }) %>
+
+
+</body>
+</html>

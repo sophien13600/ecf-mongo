@@ -5,7 +5,7 @@ import Avion from "../models/avions.js";
 
 const router = Router();
 
-router.post("/billets", async(req,res) =>{
+router.post("api/billets", async(req,res) =>{
    
     try {
         const vol = await Vol.findById(req.body.vol).populate('avion');
@@ -31,7 +31,7 @@ router.post("/billets", async(req,res) =>{
         res.status(400).json({erreur: error.message})
     }
 });
-router.delete("/billets/:id", async (req, res) => {
+router.delete("api/billets/:id", async (req, res) => {
     try {
         const billet = await Billet.findByIdAndDelete(req.params.id);
         if (!billet) {

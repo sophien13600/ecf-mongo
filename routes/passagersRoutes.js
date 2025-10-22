@@ -3,7 +3,7 @@ import Passager from "../models/passagers.js";
 
 const router = Router();
 
-router.post("/passagers", async(req,res) =>{
+router.post("api/passagers", async(req,res) =>{
     try {
         const passager = await Passager.create(req.body);
         res.status(201).json(passager);

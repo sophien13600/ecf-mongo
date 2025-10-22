@@ -1,3 +1,5 @@
+import cors from "cors";
+import methodeoverride from "method-override";
 import express from "express";
 import { connect } from "mongoose";
 import avionsRoutes from "./routes/avionsRoutes.js";
@@ -6,12 +8,20 @@ import volsRoutes from "./routes/volsRoutes.js";
 import billetsRoutes from "./routes/billetsRoutes.js";
 
 const app = express();
-app.use(express.json());
-app.use("/api",avionsRoutes)
-app.use("/api",passagersRoutes)
-app.use("/api",volsRoutes)
-app.use("/api",billetsRoutes)
 
+app.use(express.json());
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+app.use(methodeoverride("_method"));
+
+
+app.set("view engine", "ejs");
+app.set("views", "./views");
+
+app.use("/",avionsRoutes)
+app.use("/",passagersRoutes)
+app.use("/",volsRoutes)
+app.use("/",billetsRoutes)
 
 
 // connexion à mongoDB

@@ -1,0 +1,27 @@
+    <%- include("./partials/header") %>
+
+    <main class="container d-flex flex-column align-items-end">
+        <h2 class="text-center">Ajouter un avion</h2>
+        <div class="container">
+
+    <form method="POST" action="/api/avions/?_method=PUT">
+        <div class="mb-3">
+            <label for="mdl" class="form-label">Modèle</label>
+            <input type="text" name="modele" class="form-control" id="mdl">
+        </div>
+        <div class="mb-3">
+            <label for="cp" class="form-label">Compagnie</label>
+            <input type="text" name="compagnie" class="form-control" id="cp">
+        </div>
+        
+        <div class="mb-3">
+            <label for="cpt" class="form-label">Capacité</label>
+            <input type="text" name="capacite" class="form-control" id="cpt">
+        </div>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+            </div>
+
+    </main>
+</body>
+</html>

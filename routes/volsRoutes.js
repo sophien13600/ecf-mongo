@@ -4,7 +4,7 @@ import Billet from "../models/billets.js";
 
 const router = Router();
 
-router.post("/vols", async(req,res) =>{
+router.post("api/vols", async(req,res) =>{
     try {
         const vol = await Vol.create(req.body);
         res.status(201).json(vol)
@@ -14,7 +14,7 @@ router.post("/vols", async(req,res) =>{
     }
 })
 
-router.get("/vols/:id", async(req,res) =>{
+router.get("api/vols/:id", async(req,res) =>{
     try {
         const vol = await Vol.findById(req.params.id);
         res.status(201).json(vol)
@@ -24,7 +24,7 @@ router.get("/vols/:id", async(req,res) =>{
     }
 })
 
-router.delete("/vols/:id", async(req,res) =>{
+router.delete("api/vols/:id", async(req,res) =>{
     try {
         const billetExist = await Billet.exists({vol: req.params.id});
         if( billetExist ){
