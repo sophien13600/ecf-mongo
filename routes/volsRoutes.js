@@ -26,18 +26,18 @@ router.get("/vols/:id", async(req,res) =>{
 
 router.delete("/vols/:id", async(req,res) =>{
     try {
-        const billetExist = await Billet.exists({volId: req.params.id});
+        const billetExist = await Billet.exists({vol: req.params.id});
         if( billetExist ){
-            res.status(201).json({"msg": "Impossible de supprimer ce vol"});
+           return res.status(400).json({"msg": "Impossible de supprimer ce vol: des billets existent"});
             
         }
         const deleteVol = await Vol.findByIdAndDelete(req.params.id);
 
-        if( !deleteVol ) return res.status(404).json({"msg": "Ce train n'existe pas"});
-
-    res.status(201).json({"msg": "Train supprimé"});
+        if( !deleteVol ) return res.status(404).json({"msg": "Ce vol n'existe pas"});
+        res.status(201).json({"msg": "Vol supprimé avec succès"});
         
-        return res.status(400).json({"error": "Aucun vol pour cet ID"})
+
+        
     } catch (error) {
         res.status(400).json({erreur: error.message})
     }
