@@ -1,0 +1,23 @@
+    <%- include("./partials/header") %>
+
+    <main class="container">
+        <h2 class="text-center">Mettre à jour</h2>
+    <form method="POST" action="/api/avions/<%= avion._id %>?_method=PUT">
+        <div class="mb-3">
+            <label for="mdl" class="form-label">Modèle</label>
+            <input type="text" value="<%= avion.modele %>" name="modele" class="form-control" id="mdl" ">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Compagnie</label>
+            <input type="text" value="<%= avion.compagnie %>" name="compagnie" class="form-control" id="">
+        </div>
+        
+        <div class="mb-3">
+            <label for="cpt" class="form-label">Capacité</label>
+            <input type="text" value="<%= avion.capacite %>" name="capacite" class="form-control" id="cpt">
+        </div>
+        <button type="submit" class="btn btn-primary">Mettre à jour</button>
+    </form>
+    </main>
+</body>
+</html>

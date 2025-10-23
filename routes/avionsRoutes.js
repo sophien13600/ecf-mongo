@@ -24,7 +24,7 @@ router.get("/avions/new", async (req, res) => {
 router.post('/api/avions', async (req, res) => {
     try{
         const avion = await Avion.create(req.body);
-        res.status(201).json(avion);
+        res.status(201).redirect('/avions');
     }catch(err){
         res.status(404).json({erreur: err.message});
     }
@@ -37,6 +37,25 @@ router.get('/api/avions', async (req, res) => {
         res.status(404).json({erreur: err.message});
     }
 });
+
+router.get("/avion/:id/update", async (req, res) => {
+    try{
+        const avion = await Avion.findById(req.params.id);        
+        res.render("updateAvions", {avion});
+    }catch(err){
+
+    }
+});
+
+router.put("/api/avions/:id", async(req, res)=> {
+    try {
+        const avion = await Avion.findByIdAndUpdate(req.params.id, req.body);
+        res.redirect("/avions");
+    } catch (error) {
+        
+    }
+   
+})
 router.delete("/api/avions/:id", async (req, res) => {
     await Avion.findByIdAndDelete(req.params.id);
     res.redirect("/avions");

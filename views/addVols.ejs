@@ -1,0 +1,45 @@
+<%- include("./partials/header") %>
+
+    <main class="container d-flex flex-column align-items-end">
+        
+        
+        <h2 class="text-center">Ajouter un vol</h2>
+        <div class ="container">
+    <form method="POST" action="/api/vols">
+        <div class="mb-3">
+            <label for="" class="form-label">Numéro de vol</label>
+            <input type="text" name="numeroVol" class="form-control" id="" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Origine</label>
+            <input type="text" name="origine" class="form-control" id="">
+        </div>
+        
+        <div class="mb-3">
+            <label for="cpt" class="form-label">Destination</label>
+            <input type="text" name="destination" class="form-control" id="">
+        </div>
+        <div class="mb-3">
+            <label for="cpt" class="form-label">Date départ</label>
+            <input type="date" name="dateDepart" class="form-control" id="">
+        </div>
+        
+        <div class="mb-3">
+            <label for="cpt" class="form-label">Date d'arrivée</label>
+            <input type="date" name="dateArrivee" class="form-control" id="">
+        </div>
+
+        <div class="mb-3">
+            <label for="">Avion</label>
+            <select name="avion"  class="form-select">
+                <% avions.forEach( a => { %>
+                    <option value="<%= a._id %>"> <%= a.compagnie %> - <%= a.modele %> </option>
+                <% }) %>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Ajouter un vol</button>
+    </form></div>
+    </main>
+</body>
+</html>

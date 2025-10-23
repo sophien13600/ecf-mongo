@@ -8,9 +8,12 @@
             <li> Compagnie : <%= avion.compagnie %> </li>
             <li> Capacité : <%= avion.capacite %> </li>
         </ul>
+        <div class="w-100 d-flex gap-2 justify-content-start">
         <form method="POST" action="/api/avions/<%= avion._id %>?_method=DELETE">
-            <button type="submit">Delete</button>
+            <button class="btn btn-outline-danger" type="submit">Delete</button>
         </form>
+       <a href="/avion/<%= avion._id %>/update" class="btn btn-primary">Mettre à jour</a>
+       </div>
         <hr>
     <% }) %>
 

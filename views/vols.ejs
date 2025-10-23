@@ -1,0 +1,42 @@
+<%- include("./partials/header") %>
+
+    <main class="container">
+        <h2 class="text-center">Vols</h2>
+
+        <table class="table table striped">
+            <tr class="table table-dark">
+                <th>numéro</th>
+                <th>Origine</th>
+                <th>Destination</th>
+                <th>Départ</th>
+                <th>Arrivée</th>
+                <th>Compagnie</th>
+                <th>Places</th>
+                <th>Actions</th>
+            </tr>
+            <% vols.forEach( (v) => { %>
+                <tr>
+                    <td> <%= v.numeroVol %> </td>
+                    <td> <%= v.origine %> </td>
+                    <td> <%= v.destination %> </td>
+                    <td> <%= v.dateDepart.toLocaleString() %> </td>
+                    <td> <%= v.dateArrivee.toLocaleString() %> </td>
+                    <td> <%= v.avion.compagnie %> - <%= v.avion.modele %> </td>
+                    <td> <%= v.placesRestantes %> </td>
+                    <td>
+                        x - u
+                    </td>
+                </tr>
+            <% }) %>
+
+        </table>
+<ul>
+  <% statuts.forEach((statut) => { %>
+    <li>
+      Nombre de vols <strong><%= statut._id %></strong> : <%= statut.total %>
+    </li>
+  <% }) %>
+</ul>
+    </main>
+</body>
+</html>

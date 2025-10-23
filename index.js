@@ -6,6 +6,7 @@ import avionsRoutes from "./routes/avionsRoutes.js";
 import passagersRoutes from "./routes/passagersRoutes.js";
 import volsRoutes from "./routes/volsRoutes.js";
 import billetsRoutes from "./routes/billetsRoutes.js";
+import statsRoutes from "./routes/statsRoute.js";
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use("/",avionsRoutes)
 app.use("/",passagersRoutes)
 app.use("/",volsRoutes)
 app.use("/",billetsRoutes)
+app.use("/",statsRoutes)
 
 
 // connexion à mongoDB
