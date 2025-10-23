@@ -1,0 +1,57 @@
+<%- include("./partials/header") %>
+
+<main class="container py-4">
+    <h2 class="mb-4">Tableau de bord</h2>
+    <div class="row g-3">
+        <div class="col-md-4">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h5 class="card-title">Vols actifs</h5>
+                    <p class="card-text fs-3"><%= kpis.volsActifs %></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-success">
+                <div class="card-body">
+                    <h5 class="card-title">Avions en service</h5>
+                    <p class="card-text fs-3"><%= kpis.avionsService %></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-info">
+                <div class="card-body">
+                    <h5 class="card-title">Passagers</h5>
+                    <p class="card-text fs-3"><%= kpis.totalPassagers %></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-warning">
+                <div class="card-body">
+                    <h5 class="card-title">Billets vendus</h5>
+                    <p class="card-text fs-3"><%= kpis.billetsVendus %></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-dark">
+                <div class="card-body">
+                    <h5 class="card-title">Revenu total (€)</h5>
+                    <p class="card-text fs-3"><%= kpis.revenuTotal %></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-danger">
+                <div class="card-body">
+                    <h5 class="card-title">Taux d’annulation</h5>
+                    <p class="card-text fs-3"><%= kpis.tauxAnnulation %>%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
