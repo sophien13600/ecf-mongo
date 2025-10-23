@@ -13,17 +13,24 @@ res.send(statut)
 })
 
 router.get("/stats/statuts/vols-company", async (req,res) =>{
-    const repartition = await Vol.aggregate([
-    {$lookup:
-        {
-        from: "avions" ,
-        localfield: "avion",
-        foreignfield: "compagnie",
-        as : "compag "
-        
-        }
+   db.vols.aggregate([
+  {
+    $lookup: {
+      from: "avions",             
+      localField: "avion",     
+      foreignField: "_id",        
+      as: "avion"                 
     }
-    ]);
+  },
+  { $unwind: "$avion" },          
+  {
+    $group: {
+      _id: "$avion.compagnie",    
+      totalVols: { $sum: 1 }      
+    }
+  },
+  { $sort: { totalVols: -1 } }    
+]);
 res.send(statut)
 })
 
