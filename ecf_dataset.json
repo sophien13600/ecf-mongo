@@ -1,0 +1,132 @@
+{
+  "avions": [
+    {
+      "_id": { "$oid": "6718f0a9a3a1d12a9c000001" },
+      "modele": "Airbus A320",
+      "compagnie": "Air France",
+      "capacite": 8,
+      "placesRestantes": 6,
+      "enService": true
+    },
+    {
+      "_id": { "$oid": "6718f0a9a3a1d12a9c000002" },
+      "modele": "Boeing 737",
+      "compagnie": "Transavia",
+      "capacite": 9,
+      "placesRestantes": 9,
+      "enService": true
+    },
+    {
+      "_id": { "$oid": "6718f0a9a3a1d12a9c000003" },
+      "modele": "Airbus A350",
+      "compagnie": "Qatar Airways",
+      "capacite": 10,
+      "placesRestantes": 10,
+      "enService": true
+    },
+    {
+      "_id": { "$oid": "6718f0a9a3a1d12a9c000004" },
+      "modele": "Boeing 777",
+      "compagnie": "Emirates",
+      "capacite": 10,
+      "placesRestantes": 8,
+      "enService": false
+    }
+  ],
+
+  "vols": [
+    {
+      "_id": { "$oid": "6718f0f0a3a1d12a9c000011" },
+      "numeroVol": "AF742",
+      "origine": "Paris",
+      "destination": "Dakar",
+      "dateDepart": { "$date": "2025-11-01T10:00:00Z" },
+      "dateArrivee": { "$date": "2025-11-01T15:00:00Z" },
+      "avion": { "$oid": "6718f0a9a3a1d12a9c000001" },
+      "statut": "prévu"
+    },
+    {
+      "_id": { "$oid": "6718f0f0a3a1d12a9c000012" },
+      "numeroVol": "TR112",
+      "origine": "Amsterdam",
+      "destination": "Marrakech",
+      "dateDepart": { "$date": "2025-11-03T09:00:00Z" },
+      "dateArrivee": { "$date": "2025-11-03T12:30:00Z" },
+      "avion": { "$oid": "6718f0a9a3a1d12a9c000002" },
+      "statut": "retardé"
+    },
+    {
+      "_id": { "$oid": "6718f0f0a3a1d12a9c000013" },
+      "numeroVol": "QR021",
+      "origine": "Doha",
+      "destination": "Tokyo",
+      "dateDepart": { "$date": "2025-10-15T23:00:00Z" },
+      "dateArrivee": { "$date": "2025-10-16T11:00:00Z" },
+      "avion": { "$oid": "6718f0a9a3a1d12a9c000003" },
+      "statut": "terminé"
+    }
+  ],
+
+  "passagers": [
+    {
+      "_id": { "$oid": "6718f160a3a1d12a9c000021" },
+      "nom": "Doe",
+      "prenom": "Jane",
+      "email": "jane.doe@example.com",
+      "pays": "France",
+      "dateInscription": { "$date": "2025-09-28T10:00:00Z" }
+    },
+    {
+      "_id": { "$oid": "6718f160a3a1d12a9c000022" },
+      "nom": "Smith",
+      "prenom": "John",
+      "email": "john.smith@example.com",
+      "pays": "USA",
+      "dateInscription": { "$date": "2025-10-10T15:30:00Z" }
+    },
+    {
+      "_id": { "$oid": "6718f160a3a1d12a9c000023" },
+      "nom": "Lopez",
+      "prenom": "Maria",
+      "email": "maria.lopez@example.com",
+      "pays": "Espagne",
+      "dateInscription": { "$date": "2025-10-01T09:00:00Z" }
+    }
+  ],
+
+  "billets": [
+    {
+      "_id": { "$oid": "6718f1caa3a1d12a9c000031" },
+      "vol": { "$oid": "6718f0f0a3a1d12a9c000011" },
+      "passager": { "$oid": "6718f160a3a1d12a9c000021" },
+      "numeroSiege": "14A",
+      "classe": "Economie",
+      "prix": 250,
+      "dateReservation": { "$date": "2025-10-20T12:00:00Z" },
+      "modePaiement": "CB",
+      "statut": "confirmé"
+    },
+    {
+      "_id": { "$oid": "6718f1caa3a1d12a9c000032" },
+      "vol": { "$oid": "6718f0f0a3a1d12a9c000012" },
+      "passager": { "$oid": "6718f160a3a1d12a9c000022" },
+      "numeroSiege": "9C",
+      "classe": "Affaires",
+      "prix": 450,
+      "dateReservation": { "$date": "2025-10-15T08:30:00Z" },
+      "modePaiement": "PayPal",
+      "statut": "confirmé"
+    },
+    {
+      "_id": { "$oid": "6718f1caa3a1d12a9c000033" },
+      "vol": { "$oid": "6718f0f0a3a1d12a9c000013" },
+      "passager": { "$oid": "6718f160a3a1d12a9c000023" },
+      "numeroSiege": "3A",
+      "classe": "Première",
+      "prix": 1200,
+      "dateReservation": { "$date": "2025-10-10T11:00:00Z" },
+      "modePaiement": "CB",
+      "statut": "annulé"
+    }
+  ]
+}

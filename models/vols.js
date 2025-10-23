@@ -6,8 +6,8 @@ const volSchema = new Schema({
     destination: {type: String, required: true},
     dateDepart: {type: Date,  required: true},  
     dateArrivee: {type: Date, required: true},
-    avion:{type: Schema.Types.ObjectId, ref: "Avion", require:true},
-    statut:{type: String, enum: ["prévu", "retardé", "terminé", "annulé"], default:"prévu",require: true,}
+    avion:{type: Schema.Types.ObjectId, ref: "Avion", required:true},
+    statut:{type: String, enum: ["prévu", "retardé", "terminé", "annulé"], default:"prévu", required: true }
 });
 
 export default model("Vol", volSchema);

@@ -33,7 +33,7 @@ connect("mongodb://localhost:27017/ecf")
 
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.redirect("/dashboard");
 });
 
 app.listen(3000, () => console.log(`serveur lancé sur le port http://localhost:3000`) );
